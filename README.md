@@ -187,4 +187,7 @@ npm run build:all
 
 - Verify the date ranges you're requesting contain data
 - Ensure your Dexcom account has access to the requested data
-```
+
+# Attributions
+[Dexcom OpenAPI spec](https://github.com/rockybranches/dexcom-openapi-schema) Thanks to rockybranches!
+[OpenAPI to MCP generator](https://github.com/harsha-iiiv/openapi-mcp-generator) Thanks to harsha-iiiv for a quick and easy solution!
