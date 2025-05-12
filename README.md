@@ -51,6 +51,30 @@ OAUTH_CLIENT_SECRET_BEARERAUTH=your_client_secret_here
 OAUTH_REDIRECT_URI=http://localhost:3000/auth/callback
 ```
 
+### Using ngrok for Local Development
+
+When developing locally, you'll need a publicly accessible URL for the OAuth callback. You can use [ngrok](https://ngrok.com/) to create a secure tunnel to your local server:
+
+1. [Download and install ngrok](https://ngrok.com/download)
+2. Start your server (e.g., `npm run start:sse`)
+3. In a separate terminal, start ngrok:
+
+```bash
+ngrok http 3000
+```
+
+4. Copy the HTTPS URL provided by ngrok (e.g., `https://a1b2c3d4.ngrok.io`)
+5. Update your `.env` file with the ngrok URL:
+
+```
+OAUTH_REDIRECT_URI=https://a1b2c3d4.ngrok.io/auth/callback
+```
+
+6. Update your application in the Dexcom Developer Portal to include this redirect URI
+7. Restart your server to apply the changes
+
+This allows Dexcom to redirect back to your local development server after authentication.
+
 ## Server-Specific Usage
 
 ### stdio Server
@@ -177,6 +201,7 @@ npm run build:all
 - Ensure your Dexcom Client ID and Secret are correct in the `.env` file
 - Check that your redirect URI matches what's registered in the Dexcom Developer Portal
 - If tokens expire, the servers will automatically refresh them if possible
+- When using ngrok, make sure to update both your `.env` file and the Dexcom Developer Portal with the new ngrok URL each time you restart ngrok
 
 ### Connection Issues
 
