@@ -1,0 +1,22 @@
+{
+  "name": "dexcom-api-mcp-servers",
+  "version": "1.0.0",
+  "description": "MCP Servers for Dexcom API with different transport mechanisms",
+  "private": true,
+  "workspaces": [
+    "stdio",
+    "sse",
+    "streamableHttp",
+    "shared"
+  ],
+  "scripts": {
+    "build:all": "npm run build --workspaces",
+    "start:stdio": "cd stdio && npm run start",
+    "start:sse": "cd sse && npm run start:web",
+    "start:http": "cd streamableHttp && npm run start:http",
+    "auth:stdio": "cd stdio && npm run auth",
+    "dev:stdio": "cd stdio && npm run dev",
+    "dev:sse": "cd sse && npm run dev",
+    "dev:http": "cd streamableHttp && npm run dev"
+  }
+}
